@@ -14,8 +14,7 @@ public class Sel_Intro {
 		 System.out.println(driver.getTitle());
 		 System.out.println(driver.getCurrentUrl());
 		 
-		 driver.quit();		
-//		 driver.close(); 	//Only closes the current tab. Quit closes all tabs opened by selenium.
+		 driver.quit();		//driver.close() only closes the current tab. Quit closes all tabs opened by selenium.
 	}
 
 }
