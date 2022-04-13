@@ -1,18 +1,30 @@
+import java.util.ArrayList;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Java102 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int[] arr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+		System.setProperty("webdriver.chrome.driver", "/Users/gauravsinha/Downloads/chromedriver");
+		WebDriver driver = new ChromeDriver();
 		
-		for (int i = 1; i<arr.length; i++)
-		{
-			if (arr[i] % 2 == 0)
-			{
-				System.out.println(arr[i]);
-			}
-		}
+		ArrayList<String> a = new ArrayList<String>();
+		// create object of the class
+		
+		driver.get("https://www.coinbase.com/");
+		a.add(driver.getTitle());
+		a.add(driver.getPageSource());
+		a.add(driver.getCurrentUrl());
+		a.add(driver.getWindowHandle());
+		driver.quit();
+		
+		a.remove(3);
+		a.remove(1);
+		
+		System.out.println(a.get(0));
+		
 	}
-
 }
