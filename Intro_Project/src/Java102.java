@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,7 +15,7 @@ public class Java102 {
 		ArrayList<String> a = new ArrayList<String>();
 		// create object of the class
 		
-		driver.get("https://www.coinbase.com/");
+		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		a.add(driver.getTitle());
 		a.add(driver.getPageSource());
 		a.add(driver.getCurrentUrl());
@@ -24,7 +25,10 @@ public class Java102 {
 		a.remove(3);
 		a.remove(1);
 		
-		System.out.println(a.get(0));
+		System.out.println(driver.findElement(By.cssSelector("button.signInBtn")).getText());
+//		System.out.println(a.get(0));
+		
+		driver.quit();
 		
 	}
 }

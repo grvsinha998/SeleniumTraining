@@ -1,0 +1,26 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Locators {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "/Users/gauravsinha/Downloads/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		 driver.get("https://www.phptravels.net/login");
+		 
+		 driver.findElement(By.name("email")).sendKeys("user@phptravels.com");
+		 driver.findElement(By.name("password")).sendKeys("demouser");
+		 driver.findElement(By.className("ladda-label")).click();
+		 
+		 System.out.println(driver.findElement(By.cssSelector("div.breadcrumb-content")).getText());
+		 
+		 
+		 
+//		 driver.quit();
+		 
+		 }
+
+}
