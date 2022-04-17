@@ -33,6 +33,7 @@ public class Locators {
 		 
 		 driver.findElement(By.id("inputUsername")).sendKeys("Gaurav");
 		 driver.findElement(By.cssSelector("input[type*=pass]")).sendKeys("rahulshettyacademy");
+		 driver.findElement(By.id("chkboxOne")).click();
 		 driver.findElement(By.className("submit")).click();
 		 
 		 Thread.sleep(2000);

@@ -10415,3 +10415,9 @@ Binding(ALT+COMMAND+R,
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-04-17 23:37:19.162
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-04-17 23:39:54.725
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-04-17 23:39:54.729
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
