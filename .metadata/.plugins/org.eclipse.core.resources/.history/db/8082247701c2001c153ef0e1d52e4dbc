@@ -1,0 +1,118 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+//import org.testng.Assert;
+
+public class Dropdowns {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		 System.setProperty("webdriver.chrome.driver", "/Users/gauravsinha/Downloads/chromedriver");
+		 WebDriver driver = new ChromeDriver();
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));	
+		 driver.manage().window().maximize();
+		 driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		 
+		 
+		 select_origin_city("Hubli (HBX)", driver);
+		 select_destination_city("Kochi (COK)", driver);
+		 depart_date(27, 2, driver);										// Dates can only be selected within 2 months for now >> (1 - Current Month) | (2 - Next Month)
+		 Passengers(2,2,1, driver);									   	    // Adults, Children, Infants
+		 Select_Currency("USD", driver);
+	
+		 
+		 driver.quit();
+	}
+	
+	static void select_origin_city(String city_code, WebDriver driver) throws InterruptedException
+	{
+
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+		Thread.sleep(1000);
+		
+		String city_text = " " + city_code;
+		StringBuffer xpath = new StringBuffer("//a[text()='']");
+		xpath.insert(12, city_text);
+		String new_xpath = xpath.toString();
+		
+		driver.findElement(By.xpath(new_xpath)).click();
+		Thread.sleep(1000);
+		
+	}
+	
+	static void select_destination_city(String city_code, WebDriver driver) throws InterruptedException
+	{
+
+		String city_text = " " + city_code;
+		StringBuffer xpath = new StringBuffer("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR']//a[text()='']");
+		xpath.insert(74, city_text);
+		String new_xpath = xpath.toString();
+		
+		driver.findElement(By.xpath(new_xpath)).click();
+		Thread.sleep(1000);
+		
+	}
+	
+	static void depart_date(int day, int month, WebDriver driver) throws InterruptedException
+	{
+		
+		String day_str = String.valueOf(day);
+		String month_str = String.valueOf(month);
+		
+		StringBuffer old_xpath = new StringBuffer("(//a[text()=''])[]");
+		StringBuffer xpath = old_xpath.insert(17, month_str);
+		xpath.insert(13, day_str);
+		String new_xpath = xpath.toString();
+		
+		driver.findElement(By.xpath(new_xpath)).click();
+		Thread.sleep(1000);
+		
+	}
+	
+	static void Passengers(int a, int b, int c, WebDriver driver) throws InterruptedException
+	{
+		
+		 driver.findElement(By.id("divpaxinfo")).click();
+		 Thread.sleep(1000);
+		 
+		 int i, j, k;
+		 i=j=k=1;
+		 while (i<a)
+		 {
+			 driver.findElement(By.id("hrefIncAdt")).click();
+			 i++;
+		 }
+		 Thread.sleep(1000);
+		 while (j<=b)
+		 {
+			 driver.findElement(By.id("hrefIncChd")).click();
+			 j++;	
+		 }
+		 Thread.sleep(1000);
+		 while (k<=c)
+		 {
+			 driver.findElement(By.id("hrefIncInf")).click();
+			 k++;
+		 }
+		 Thread.sleep(1000);
+		 
+		 System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
+		 
+	}
+	
+	static void Select_Currency(String currency, WebDriver driver) throws InterruptedException
+	{
+		
+		 WebElement staticDropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
+		 Select dropdown = new Select(staticDropdown);		//Only works with Select Tag.
+		 dropdown.selectByValue(currency);
+		 Thread.sleep(1000);
+		 
+	}
+
+}
