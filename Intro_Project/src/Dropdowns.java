@@ -1,4 +1,5 @@
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,22 +20,23 @@ public class Dropdowns {
 		 driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		 
 		 
+		 select_country("India", driver);
 		 Travel_Type("One Way", driver);
 		 select_origin_city("Goa (GOI)", driver);
 		 select_destination_city("Srinagar (SXR)", driver);
 		 
 		 driver.findElement(By.xpath("(//a[text()='17'])")).click();						// Figure out a function for this.
 		 Thread.sleep(1000);
-		
-		 Passengers(1, 2, 2, driver);									   	    // Adults, Children, Infants
+	     
+		 Passengers(2, 2, 1, driver);									   	   								 // Adults, Children, Infants
 		 Select_Currency("USD", driver);
 		 
-		 
-	
-		 
+		 driver.findElement(By.xpath("//span[@class='btn-find-flight-home']//input[@value='Search']")).click();
+			 
 		 driver.quit();
+		 
 	}
-	
+	// 
 	static void select_origin_city(String city_code, WebDriver driver) throws InterruptedException
 	{
 
@@ -47,6 +49,24 @@ public class Dropdowns {
 		String new_xpath = xpath.toString();
 		
 		driver.findElement(By.xpath(new_xpath)).click();
+		Thread.sleep(1000);
+		
+	}
+	
+	static void select_country(String country, WebDriver driver) throws InterruptedException
+	{
+
+		driver.findElement(By.id("autosuggest")).sendKeys(country);
+		Thread.sleep(1000);
+		List<WebElement> options =driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+		for(WebElement option :options)
+		{
+			if(option.getText().equalsIgnoreCase(country))
+			{
+				option.click();
+				break;
+			}
+		}
 		Thread.sleep(1000);
 		
 	}
@@ -90,7 +110,6 @@ public class Dropdowns {
 			 k++;
 		 }
 		 Thread.sleep(1000);
-//		 System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 		 
 	}
 	
