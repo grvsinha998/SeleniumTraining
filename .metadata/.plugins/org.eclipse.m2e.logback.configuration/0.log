@@ -2789,3 +2789,7 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.gu
 2022-04-22 19:25:25,375 [Worker-218: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/gauravsinha/eclipse-workspace/SeleniumTraining/Intro_Project/src/main/resources
 2022-04-22 19:25:25,375 [Worker-218: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-04-22 19:25:25,375 [Worker-218: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/gauravsinha/eclipse-workspace/SeleniumTraining/Intro_Project/src/test/resources
+2022-04-22 21:03:09,589 [Worker-220: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 21:03:09,590 [Worker-220: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/gauravsinha/eclipse-workspace/SeleniumTraining/Intro_Project/src/main/resources
+2022-04-22 21:03:09,590 [Worker-220: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-04-22 21:03:09,590 [Worker-220: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/gauravsinha/eclipse-workspace/SeleniumTraining/Intro_Project/src/test/resources
