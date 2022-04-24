@@ -1,0 +1,28 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class Assignment_1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		 System.setProperty("webdriver.chrome.driver", "/Users/gauravsinha/Downloads/chromedriver");
+		 WebDriver driver = new ChromeDriver();
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));	
+		 driver.manage().window().maximize();
+		 driver.get("https://rahulshettyacademy.com/angularpractice/");
+		 
+		 driver.findElement(By.xpath("//div[@class='form-group']/input[@name='name']")).sendKeys("Gaurav_Sinha");
+		 driver.findElement(By.xpath("//div[@class='form-group']/input[@name='name']")).sendKeys("grv_testl_mail@gmail.com");
+		 driver.findElement(By.id("exampleInputPassword1")).sendKeys("Test_Password");
+		 
+		 
+		 driver.quit();
+	}
+
+	}
+}

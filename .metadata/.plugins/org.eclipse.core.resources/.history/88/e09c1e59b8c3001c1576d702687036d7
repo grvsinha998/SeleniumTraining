@@ -1,0 +1,63 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+public class Assignment_1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		 System.setProperty("webdriver.chrome.driver", "/Users/gauravsinha/Downloads/chromedriver");
+		 WebDriver driver = new ChromeDriver();
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));	
+		 driver.manage().window().maximize();
+		 driver.get("https://rahulshettyacademy.com/angularpractice/");
+		 
+		 driver.findElement(By.xpath("//div[@class='form-group']/input[@name='name']")).sendKeys("Gaurav_Sinha");
+		 driver.findElement(By.xpath("//div[@class='form-group']/input[@name='email']")).sendKeys("grv_testl_mail@gmail.com");
+		 driver.findElement(By.xpath("//input[@id='exampleInputPassword1']")).sendKeys("Test_Password");
+		 
+		 driver.findElement(By.xpath("//input[@id='exampleCheck1']")).click();
+		 Thread.sleep(1000);
+		 
+		 Assert.assertTrue(driver.findElement(By.xpath("//input[@id='exampleCheck1']")).isSelected());
+		 
+		 Select_Gender("Female", driver);
+		 Select_Gender("Male", driver);
+		 
+		 for (i=1; i<3; i++)
+		 {
+			 driver.findElement(By.xpath("//div[@class='form-check form-check-inline']")).click();
+		 }
+		 
+		 driver.findElement(By.xpath("//div[@class='form-check form-check-inline']/label[text()='Employed']")).click();
+		 Thread.sleep(1000);
+		 
+		 driver.findElement(By.xpath("//div[@class='form-check form-check-inline']/label[text()='Student']")).click();
+		 Thread.sleep(1000);
+		 
+		 driver.findElement(By.xpath("//div[@class='form-group']/input[@name='name']")).sendKeys("13021997");
+		 Thread.sleep(1000);
+		 
+		 driver.findElement(By.xpath("//input[@class='btn btn-success']")).click();
+		 Thread.sleep(1000);
+		 
+		 
+		 
+		 
+		 driver.quit();
+	}
+
+	public static void Select_Gender(String gender, WebDriver driver) throws InterruptedException
+	{
+		 WebElement staticDropdown = driver.findElement(By.id("exampleFormControlSelect1"));
+		 Select dropdown = new Select(staticDropdown);
+		 dropdown.selectByVisibleText(gender);
+		 Thread.sleep(1000);
+	}
+}
