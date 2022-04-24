@@ -29,7 +29,6 @@ public class Iterinary_e2e {
 		 Select_Currency("USD", driver);
 		 Discount("Student", driver);
 		 
-		 
 //		 driver.findElement(By.xpath("//span[@class='btn-find-flight-home']//input[@value='Search']")).click();
 
 		 driver.quit();
