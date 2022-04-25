@@ -1,4 +1,5 @@
 import java.time.Duration;
+//import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -18,6 +19,8 @@ public class GreenKart {
 		driver.manage().window().maximize();
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 
+		
+//		Add product with quantity to cart.
 		productQty("Beans", 5, driver);
 		productQty("Cucumber", 3, driver);
 		productQty("Carrot", 2, driver);
@@ -26,10 +29,21 @@ public class GreenKart {
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//td/strong")).getText(), "3");
 
+		driver.navigate().refresh();
+		
+		
+//		Add multiple products to cart.
+		String[] List = {"Beans", "Cucumber", "Carrot"};
+		addOneToCart(List, driver);
+		
+		Thread.sleep(1000);
+		
+		Assert.assertEquals(driver.findElement(By.xpath("//td/strong")).getText(), "3");
+		
 		driver.quit();
 
 	}
-
+	
 	public static void productQty(String input, int qty, WebDriver driver) throws InterruptedException {
 		
 		List<WebElement> prodList = driver.findElements(By.xpath("//h4[@class='product-name']"));
@@ -45,6 +59,24 @@ public class GreenKart {
 				break;
 			}
 		}
+	}
+	
+	public static void addOneToCart(String[] productListinput, WebDriver driver) throws InterruptedException
+	{
+		String[] productListIn = productListinput;
+		
+		List<WebElement> prodList = driver.findElements(By.xpath("//h4[@class='product-name']"));
+		
+		for (String product: productListIn) {
+			for (int i = 0; i < prodList.size(); i++) {
+				String name = prodList.get(i).getText();
+				if (name.contains(product)) {	
+					driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
+					break;
+				}
+				Thread.sleep(1000);
+				}
+			}
 	}
 
 }
