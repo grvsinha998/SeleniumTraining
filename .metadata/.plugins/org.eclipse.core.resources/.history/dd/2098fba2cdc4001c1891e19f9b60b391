@@ -33,13 +33,14 @@ public class GreenKart {
 		checkout("rahulshettyacademy", driver);
 		selectCountry("India", driver);
 		
-		driver.quit();
 
 ////	Add multiple products to cart.
 //		driver.navigate().refresh();
 //
 //		String[] List = {"Beans", "Cucumber", "Carrot"};
 //		addOneToCart(List, driver);
+		
+		driver.quit();
 
 	}
 	
