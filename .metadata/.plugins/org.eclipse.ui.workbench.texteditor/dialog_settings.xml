@@ -6,14 +6,17 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value=";&#x0A;&#x09;&#x09;&#x09;&#x09;}&#x0A;&#x09;&#x09;&#x09;}&#x0A;&#x09;}&#x0A;&#x0A;}"/>
 		<list key="findhistory">
+			<item value="Thread.sleep(1000)"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="552"/>
-		<item key="DIALOG_Y_ORIGIN" value="170"/>
+		<item key="DIALOG_X_ORIGIN" value="878"/>
+		<item key="DIALOG_Y_ORIGIN" value="108"/>
 		<item key="DIALOG_WIDTH" value="336"/>
 		<item key="DIALOG_HEIGHT" value="402"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
