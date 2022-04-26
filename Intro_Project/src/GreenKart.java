@@ -90,13 +90,16 @@ public class GreenKart {
 	}
 	
 	static void checkout(String coupon, WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
 		driver.findElement(By.className("cart-icon")).click();
 		driver.findElement(By.xpath("//button[contains(text(),'PROCEED')]")).click();
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("promoCode")));
 		
 		driver.findElement(By.className("promoCode")).sendKeys(coupon);
 		driver.findElement(By.className("promoBtn")).click();
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Code applied ..!']")));
 		
 		driver.findElement(By.xpath("//button[text()='Place Order']")).click();
