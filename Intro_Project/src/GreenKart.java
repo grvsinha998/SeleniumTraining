@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,7 +35,7 @@ public class GreenKart {
 		Assert.assertEquals(driver.findElement(By.xpath("//td/strong")).getText(), "3");
 		
 		checkout("rahulshettyacademy", driver);
-		selectCountry("India", driver);
+		selectCountry("China", driver);
 		
 		driver.quit();
 
@@ -46,8 +47,8 @@ public class GreenKart {
 
 	}
 	
-	static void productQty(String input, int qty, WebDriver driver) {
-		
+	static void productQty(String input, int qty, @NotNull WebDriver driver) {
+
 		List<WebElement> prodList = driver.findElements(By.xpath("//h4[@class='product-name']"));
 
 		for (int i = 0; i < prodList.size(); i++) {
@@ -63,11 +64,10 @@ public class GreenKart {
 	}
 	
 	static void addOneToCart(String[] productListinput, WebDriver driver) {
-		String[] productListIn = productListinput;
 
 		List<WebElement> prodList = driver.findElements(By.xpath("//h4[@class='product-name']"));
 
-		for (String product : productListIn) {
+		for (String product : productListinput) {
 			for (int i = 0; i < prodList.size(); i++) {
 				String name = prodList.get(i).getText();
 				if (name.contains(product)) {

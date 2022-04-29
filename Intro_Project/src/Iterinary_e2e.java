@@ -23,9 +23,9 @@ public class Iterinary_e2e {
 		 Travel_Type("One Way", driver);
 		 select_origin_city("Goa (GOI)", driver);
 		 select_destination_city("Srinagar (SXR)", driver);
-		 driver.findElement(By.xpath("(//a[text()='17'])")).click();						// Figure out a function for this.
+		 driver.findElement(By.xpath("(//a[text()='17'])")).click();										// Figure out a function for this.
 		 Thread.sleep(1000);
-		 Passengers(2, 2, 1, driver);									   	   								 // Adults, Children, Infants
+		 Passengers(2, 2, 1, driver);									   	   								 	// Adults, Children, Infants
 		 Select_Currency("USD", driver);
 		 Discount("Student", driver);
 		 
@@ -35,25 +35,25 @@ public class Iterinary_e2e {
 		 
 	}
 
-	static void select_country(String country, WebDriver driver) throws InterruptedException
-	{
-
-		driver.findElement(By.id("autosuggest")).sendKeys(country);
-		Thread.sleep(1000);
-		
-		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
-		for(WebElement option :options)
-		{
-			if(option.getText().equalsIgnoreCase(country))
-			{
-				option.click();
-				break;
-			}
-		}
-		
-		Thread.sleep(1000);
-		
-	}
+//	static void select_country(String country, WebDriver driver) throws InterruptedException
+//	{
+//
+//		driver.findElement(By.id("autosuggest")).sendKeys(country);
+//		Thread.sleep(1000);
+//
+//		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+//		for(WebElement option :options)
+//		{
+//			if(option.getText().equalsIgnoreCase(country))
+//			{
+//				option.click();
+//				break;
+//			}
+//		}
+//
+//		Thread.sleep(1000);
+//
+//	}
 	
 	static void select_origin_city(String city_code, WebDriver driver) throws InterruptedException
 	{
