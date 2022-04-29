@@ -35,25 +35,25 @@ public class Iterinary_e2e {
 		 
 	}
 
-//	static void select_country(String country, WebDriver driver) throws InterruptedException
-//	{
-//
-//		driver.findElement(By.id("autosuggest")).sendKeys(country);
-//		Thread.sleep(1000);
-//
-//		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
-//		for(WebElement option :options)
-//		{
-//			if(option.getText().equalsIgnoreCase(country))
-//			{
-//				option.click();
-//				break;
-//			}
-//		}
-//
-//		Thread.sleep(1000);
-//
-//	}
+	static void select_country(String country, WebDriver driver) throws InterruptedException
+	{
+
+		driver.findElement(By.id("autosuggest")).sendKeys(country);
+		Thread.sleep(1000);
+
+		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+		for(WebElement option :options)
+		{
+			if(option.getText().equalsIgnoreCase(country))
+			{
+				option.click();
+				break;
+			}
+		}
+
+		Thread.sleep(1000);
+
+	}
 	
 	static void select_origin_city(String city_code, WebDriver driver) throws InterruptedException
 	{
