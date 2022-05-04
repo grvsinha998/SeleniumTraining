@@ -39,11 +39,13 @@ public class GreenKart {
 		
 		driver.quit();
 
-////	Add multiple products to cart.
-//		driver.navigate().refresh();
-//
-//		String[] List = {"Beans", "Cucumber", "Carrot"};
-//		addOneToCart(List, driver);
+/*
+		Add multiple products to cart.
+		driver.navigate().refresh();
+
+		String[] List = {"Beans", "Cucumber", "Carrot"};
+		addOneToCart(List, driver);
+*/
 
 	}
 	
