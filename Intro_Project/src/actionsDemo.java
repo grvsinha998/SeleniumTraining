@@ -1,3 +1,4 @@
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -40,7 +41,7 @@ public class actionsDemo {
         axn.moveToElement(driver.findElement(By.id("nav-link-accountList-nav-line-1"))).build().perform();
     }
 
-    public static void Search_Item(String item, WebDriver driver) {
+    public static void Search_Item(String item, @NotNull WebDriver driver) {
         WebElement search_bar = driver.findElement(By.id("twotabsearchtextbox"));
 
         Actions axn = new Actions(driver);
