@@ -21,12 +21,10 @@ public class Assignment_6 {
         int opt_num = num.nextInt(3);
 
         driver.findElements(By.xpath("//fieldset//*[@type='checkbox']")).get(opt_num).click();
-        Thread.sleep(2000);
 
         WebElement staticDropdown = driver.findElement(By.id("dropdown-class-example"));
         Select dropdown = new Select(staticDropdown);
         dropdown.selectByIndex(opt_num+1);
-        Thread.sleep(2000);
 
         String opt_value = "Option" + (opt_num+1);
         System.out.println(opt_value);
