@@ -1,9 +1,11 @@
-import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Js_executor {
     public static void main(String[] args) throws InterruptedException {
@@ -15,12 +17,20 @@ public class Js_executor {
 
         JavascriptExecutor js = (JavascriptExecutor)driver;     //casting driver to js executor.
 
-        js.executeScript("window.scrollBy(0,500)");
+        js.executeScript("window.scrollBy(0,600)");
         Thread.sleep(3000);
-        js.executeScript("document.querySelector('.tableFixHead').scrollTop=5000");
-        Thread.sleep(3000);
+
+        int num_rows = driver.findElements(By.xpath("//table[@name='courses']/tbody/tr")).size();
+        int num_cols = driver.findElements(By.xpath("//table[@name='courses']/tbody/tr/th")).size();
+        System.out.printf("Number of rows:%d\nNumber of columns:%d%n", num_rows, num_cols);
+
+        List<WebElement> cells = driver.findElements(By.xpath("(//table[@name='courses']/tbody/tr)[3]//td"));
+
+        for (WebElement cell: cells) {
+            String cell_data = cell.getText();
+            System.out.println(cell_data);
+        }
 
         driver.quit();
-
     }
 }
