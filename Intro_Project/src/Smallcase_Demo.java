@@ -1,8 +1,10 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -20,8 +22,6 @@ public class Smallcase_Demo {
         driver.get("https://www.smallcase.com/discover/all");
 
         Sort_By(a, driver);
-        Thread.sleep(3000);
-        Get_First_Smallcase(driver);
 
         driver.findElement(By.xpath("//input[@class='SmallcaseSearchAutosuggestTheme__input__uI43R font-regular ml8 text-14']")).sendKeys("TATA");
         Thread.sleep(3000);
@@ -45,12 +45,14 @@ public class Smallcase_Demo {
             driver.findElement(By.xpath("//span[text()='Popularity']")).click();
         }
 
+        driver.findElement(By.xpath("//span[text()='Low - High']")).click();
         driver.findElement(By.xpath("//div[@class='DropdownRow__wrapper__3eOpl DropdownRow__sort-filter__1a_W4']/span/span/i")).click();
-        }
-    static void Get_First_Smallcase(WebDriver driver) {
+
         String Head = driver.findElement(By.xpath("(//h2[@class='SmallcaseCard__title__2M7E_ ellipsis mr8 SmallcaseCard__size-auto__NxnIC'])[1]")).getText();
         String Price = driver.findElement(By.xpath("(//div[@data-testid='undefined_statbox-amount-stats-0']//div[contains(text(),'₹')])[1]")).getText();
-        System.out.println(Head+": "+ Price);
+
+        System.out.println("For a duration of "+". Cheapest Smallcase available is "+Head+": "+ Price);
+
     }
 }
 
