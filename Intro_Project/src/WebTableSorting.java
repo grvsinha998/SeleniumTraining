@@ -1,9 +1,12 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import java.security.Key;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,9 +16,10 @@ public class WebTableSorting {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "/Users/gauravsinha/Downloads/chromedriver");
         WebDriver driver = new ChromeDriver();
+        Actions axn = new Actions(driver);
         driver.manage().window().maximize();
         driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
-
+/*
         driver.findElement(By.xpath("//tr/th[1]")).click();
 
         List<WebElement> elementsList = driver.findElements(By.xpath("//tr/td[1]"));
@@ -38,9 +42,18 @@ public class WebTableSorting {
             }
         }
         while(price.size()<1);
+*/
+
+        WebElement Search_Field = driver.findElement(By.id("search-field"));
+        Search_Field.sendKeys("Rice");
+
+        List<WebElement> veggies = driver.findElements(By.xpath("//tr/td[1]"));
+        List<WebElement> rice = veggies.stream().filter(v -> v.getText().contains("Rice"))
+                                                .collect(Collectors.toList());
+
+        Assert.assertEquals(veggies.size(),rice.size());
 
         driver.quit();
-
     }
 
 
